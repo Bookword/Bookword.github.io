@@ -1,0 +1,67 @@
+/* ANIMATIONS */
+.slide-in {animation:slide-in 0.8s;}
+@keyframes slide-in {
+    from {transform: translate(0px,-50px);opacity:0;}
+    to {transform: translate(0px,0px);opacity:1;}
+}
+.fade-in {animation:fade-in 0.45s;}
+.fade-in-slow {animation:fade-in 1.3s;}
+@keyframes fade-in {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+body{
+    overflow-y:scroll;
+    background:#f2f2f2;
+}
+.active-url{
+    text-decoration:underline !important;
+    color:#fff !important;
+}
+.navbar-brand{
+    color:#fff !important;
+}
+.push-down{
+    margin-bottom:20px;
+}
+
+/* Footer */
+.footer{
+    margin-top:40px;
+    padding:30px 20px;
+    background:#eee;
+}
+
+/* Background fade image */
+.background-fade{
+    position: fixed;
+    width:100%;
+    top:0;
+    z-index: -2;
+}
+
+/* Turntable related styles. */
+.turntable {
+    display: inline-block;
+    margin: 0px;
+}
+.turntable ul {
+    padding: 0px;
+    margin: 0px;
+}
+.turntable ul li {
+    list-style-type: none;
+    display: none;
+}
+.turntable ul li img {
+    width: 100%;
+}
+.turntable ul li.active {
+    display: block;
+}
+
+/* Badge spacing for Product pieces. */
+.bookword-badge{
+    margin-right:5px;
+}
