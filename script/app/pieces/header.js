@@ -16,6 +16,7 @@ define(["app/data"],function(data){
         var logo = m("img", {class: "header-image", src:"./img/logo.png"});
 
         return m(".navbar.navbar-dark.bg-dark.navbar-expand-lg.push-down", m(".container", [
+            m("img.bookword-logo",{src:"img/Logo.png"},""),
             m("a.navbar-brand", "Bookword Bound"),
             // Right part of the nav bar
             m(".collapse.navbar-collapse", list)

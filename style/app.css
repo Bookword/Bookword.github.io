@@ -42,26 +42,34 @@ body{
 }
 
 /* Turntable related styles. */
-.turntable {
-    display: inline-block;
-    margin: 0px;
+#table-reel{
+    margin:auto;
+    border:1px solid #333;
 }
-.turntable ul {
-    padding: 0px;
-    margin: 0px;
+#table-reel::after{
+    position:absolute;
+    left:5px;
+    bottom:5px;
+    background:white;
+    border:1px solid #888;
+    padding:3px;
+    opacity:0.9;
+    content:"Drag me, I'm 3d!";
+    transition:opacity 0.2s;
 }
-.turntable ul li {
-    list-style-type: none;
-    display: none;
-}
-.turntable ul li img {
-    width: 100%;
-}
-.turntable ul li.active {
-    display: block;
+#table-reel:hover::after{
+    opacity:0;
 }
 
 /* Badge spacing for Product pieces. */
 .bookword-badge{
     margin-right:5px;
+}
+.bookword-logo{
+    width:25px;
+    position:relative;
+    left:-15px;
+}
+.bookword-banner{
+    width:100%;
 }

@@ -2,37 +2,31 @@ define(function(){
     return {
         antiques: [
             {
-                Premium: true,
-                PremiumDirectory: "Chinese",
-                Frames:20,
-                Name: "This one",
-                FaceImage: "na",
-                FullImage: "na",
+                Name: "Chinese Tea Set",
+                Blurb: "A beautiful dragon wraps around this beautiful authentic Tea Set \
+                over top of a vibrant red set, including an intricate case.",
+                Article: "Very **small** piece of contemporary art",
                 Price: 800,
-                Blurb: "Beautiful small contemporary piece",
-                FullDescription: "Very small piece of contemporary art",
-                Tags: ["Chinese", "Pot", "Red", "Dragon", "Premium"]
+                Premium: true,
+                Tags: ["Chinese", "Pot", "Red", "Dragon", "Premium"],
+                Media: [
+                    {Type: "THUMBNAIL", Path: "img/ChineseTeaSet/Packed.jpg"},
+                    {Type: "TURNTABLE", Frames:19, Path:"img/ChineseTeaSet/Turntable"},
+                ]
             },
             {
-                Premium: true,
-                PremiumDirectory: "FancyBox",
-                Frames:25,
-                Name: "This one",
-                FaceImage: "na",
-                FullImage: "na",
+                Name: "Box",
+                Blurb: "A beautiful dragon wraps around this beautiful authentic Tea Set \
+                over top of a vibrant red set, including an intricate case.",
+                Article: "Very **small** piece of contemporary art",
                 Price: 800,
-                Blurb: "Beautiful small contemporary piece",
-                FullDescription: "Very small piece of contemporary art",
-                Tags: ["Chinese", "Pot", "Red", "Dragon", "Premium"]
+                Premium:true,
+                Tags: ["Chinese", "Pot", "Red", "Dragon", "Premium"],
+                Media: [
+                    {Type: "THUMBNAIL", Path: "img/ChineseTeaSet/Packed.jpg"},
+                    {Type: "TURNTABLE", Frames:24, Path:"img/FancyBox"},
+                ]
             },
-            {
-                Name: "Testing",
-                FaceImage: "https://i.imgur.com/4UBZzY8.png",
-                FullImage: "https://i.imgur.com/4UBZzY8.png",
-                Blurb: "Beautiful small contemporary piece",
-                FullDescription: "Very small piece of contemporary art",
-                Tags: ["Test", "Piece"]
-            }
         ],
         Pages: [
             {url: "", name: "Home"},
