@@ -10,22 +10,9 @@ define([], function(){
         var pieces = [];
         var antique = vnode.attrs.product;
 
-        // Media, look for thumbnail, else the last image
-        if(antique.Media != null){
-            var latest_image;
-            for(i=0;i < antique.Media.length; i++){
-                if(antique.Media[i].Type == "THUMBNAIL"){
-                    pieces.push(m("img.card-img-top", {src:antique.Media[i].Path}, ""));
-                    break;
-                }
-                if(antique.Media[i].Type == "IMAGE"){
-                    latest_image = antique.Media[i].Path;
-                }
-            }
-            if(latest_image != null){
-                pieces.push(m("img.card-img-top", {src:latest_image}, ""));
-            }
-        }
+        // Add the thumbnail image
+        pieces.push(m("img.card-img-top", {src:antique.Thumbnail}, ""));
+
         // Create the card body.
         var body_pieces = []
 
@@ -37,7 +24,6 @@ define([], function(){
             body_pieces.push(m("p.card-text", antique.Blurb));
         }
 
-        
         // Tags
         if(antique.Tags != null){
             var taglist = [];
@@ -52,9 +38,9 @@ define([], function(){
         body_pieces.push(m("br"));
         // Buttons for contact and deep link to the actual product!
         if(antique.Price != null) {
-            body_pieces.push(m("span.badge.badge-lg.badge-primary", "C$"+antique.Price))
+            body_pieces.push(m("span.bookword-pricetag", "C$"+antique.Price))
         }
-        body_pieces.push(m("a.btn[href='#!/view/"+antique.Name+"']", "More Details"));
+        body_pieces.push(m("a[href='#!/view/"+antique.Name+"']", "See More Details"));
 
         pieces.push(m(".card-body", body_pieces))
         premium_size = vnode.attrs.product.Premium != null ? 6 : 4;

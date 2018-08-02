@@ -10,10 +10,7 @@ define(["app/data"],function(data){
             cache_pages.push(element);
         }
 
-        var list = m("ul.navbar-nav", cache_pages)
-
-        // The basic logo element for the navbar.
-        var logo = m("img", {class: "header-image", src:"./img/logo.png"});
+        var list = m("ul.navbar-nav", cache_pages);
 
         return m(".navbar.navbar-dark.bg-dark.navbar-expand-lg.push-down", m(".container", [
             m("img.bookword-logo",{src:"img/Logo.png"},""),

@@ -1,5 +1,5 @@
 // This module returns the Mithril.js Component that represents the entirety of the Viewing Page
-define(["app/data", "piece/header", "piece/footer"], function(data, Header, Footer){
+define(["app/data", "piece/header", "piece/footer", "piece/media"], function(data, Header, Footer, MediaListing){
     var Viewing = {};
 
     // Initializer
@@ -13,15 +13,7 @@ define(["app/data", "piece/header", "piece/footer"], function(data, Header, Foot
     }
 
     Viewing.oncreate = function(vnode){
-        if(this.ReelInformation == null){
-            return;
-        }
-        
-        $("#table").reel({
-            images: this.ReelInformation.Path+"/#.jpg|1.."+this.ReelInformation.Frames,
-            frames: this.ReelInformation.Frames,
-            cw:true,
-        });
+        window.scrollTo(0,0);
     }
     
     Viewing.view = function(vnode){
@@ -35,25 +27,35 @@ define(["app/data", "piece/header", "piece/footer"], function(data, Header, Foot
 
         var Pieces = [];
         for(i=0;i<this.Antique.Media.length;i++){
-            if(this.Antique.Media[i].Type == "TURNTABLE"){
-                Pieces.push(m("img#table", {src:this.Antique.Media[i].Path+"/1.jpg", width:900, height:500}, ""));
-                this.ReelInformation = {Path:this.Antique.Media[i].Path, Frames:this.Antique.Media[i].Frames};
-            }
-            if(this.Antique.Media[i].Type == "IMAGE"){
-                Pieces.push(m("img", {src:this.Antique.Media[i].Path}, ""))
-            }
+            Pieces.push(m(MediaListing, {Data:this.Antique.Media[i]}, ""));
         }
-        
 
-        var Converter = new showdown.Converter();
+        var Tags = [];
+        this.Antique.Tags.forEach(t => {
+            Tags.push(m("span.badge.badge-info.bookword-badge", t+" "));
+        });
+
+        var Overview = m("div.bookword-overview.push-down", {}, [
+            m("div.overview-side", {}, [
+                // Name of the product.
+                m("h2.overview-title", this.Antique.Name),
+                // Blurb
+                m("span.overview-blurb", this.Antique.Blurb),
+                // Asking price element
+                m("br"),
+                m("hr"),
+                m("span.overview-price", this.Antique.Price != null ? "Asking Price of C$"+this.Antique.Price : "No Price available, please offer through Email if interested."),
+                m("div.tags", Tags),
+                m("a[href='#!/contact']", {}, "Contact us if you are interested in this piece.")
+            ])
+        ]);
+        
         return m("div", [
             m(Header),
             m("div.container.fade-in", [
-                m("span.btn.btn-outline-info.btn-sm", {onclick: this.GoBack}, "Go back"),
+                Overview,
                 m("div", Pieces),
-                m("hr"),
-                m("h1.title.text-center", this.Antique.Name),
-                m("p", m.trust(Converter.makeHtml(this.Antique.Article)))
+                m("span.btn.btn-outline-info.btn-sm", {onclick: this.GoBack}, "Go back"),
             ]),
             m(Footer)
         ]);

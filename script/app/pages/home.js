@@ -17,8 +17,8 @@ define(["app/data", "piece/header", "piece/footer"], function(data, Header, Foot
                     m("h1.display-3", "Quality, Quantity, Experience"),
                     m("p.lead", "At Bookword Bound, you don't have to pick just one."),
                 ]),
+                m("img.bookword-banner.push-down", {src:'./img/Yard.jpg'}, ""),
                 // Side by side intro AND quick info
-                m("img[src='http://via.placeholder.com/800x150'].bookword-banner.push-down"),
                 m(".row", [
                     // Left side
                     m(".col-8", [

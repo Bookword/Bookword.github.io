@@ -11,6 +11,7 @@
     to {opacity:1;}
 }
 
+/* Misc overrides */
 body{
     overflow-y:scroll;
     background:#f2f2f2;
@@ -24,6 +25,9 @@ body{
 }
 .push-down{
     margin-bottom:20px;
+}
+img {
+    image-orientation: from-image;
 }
 
 /* Footer */
@@ -42,11 +46,10 @@ body{
 }
 
 /* Turntable related styles. */
-#table-reel{
+.turntable-init{
     margin:auto;
-    border:1px solid #333;
 }
-#table-reel::after{
+.turntable-init::after{
     position:absolute;
     left:5px;
     bottom:5px;
@@ -57,7 +60,7 @@ body{
     content:"Drag me, I'm 3d!";
     transition:opacity 0.2s;
 }
-#table-reel:hover::after{
+.turntable-init:hover::after{
     opacity:0;
 }
 
@@ -72,4 +75,74 @@ body{
 }
 .bookword-banner{
     width:100%;
+}
+.bookword-pricetag{
+    position:absolute;
+    bottom:0;
+    right:0;
+    padding:6px 6px 6px 10px;
+    background:#17a2b8;
+    border-top-left-radius: 4px;
+    font-weight: bold;
+    color:white;
+}
+.blackout{
+    background:rgba(0,0,0,0.1);
+}
+.bookword-image{
+    width:75%;
+    box-shadow:0px 4px 7px rgba(0,0,0,0.6);
+    border-radius:3px;
+}
+
+/* Info header */
+.bookword-overview{
+    background:rgba(0,0,0,0.04);
+    /* border-bottom:1px solid rgba(0,0,0,0.3); */
+    padding:15px;
+}
+.bookword-overview .overview-thumbnail {
+    width:100px;
+    height:100px;
+}
+.overview-side{
+    display:inline-block;
+}
+
+.easy-read{
+    line-height: 160%;
+    width:80%;
+    font-size: 110%;
+}
+
+.turntable-init{
+    margin:auto;
+}
+
+/* Gallery styling */
+.gallery-container{
+    padding:5px;
+    background:rgba(0,0,0,0.1);
+}
+.gallery-item img{
+    width:300px;
+    margin:5px;
+    border: 3px solid #333;
+}
+
+.lum-lightbox-image-wrapper{
+    background:rgba(0,0,0,0.8);
+    padding:30px;
+}
+.lum-lightbox-image-wrapper::after{
+    content:"Click again to close this image preview";
+    position:fixed;
+    bottom:3px;
+    left:3px;
+    color:white;
+}
+.lum-image{
+    max-width: 75%;
+    border:3px solid white;
+    border-radius: 3px;
 }
